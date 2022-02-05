@@ -1,0 +1,12 @@
+.todo-table .max-width {
+    max-width: 300px;
+    word-break: break-all;
+}
+
+.todo-table td {
+    vertical-align: middle !important;
+}
+
+:disabled {
+    cursor: not-allowed !important;
+}
