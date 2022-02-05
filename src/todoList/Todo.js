@@ -28,10 +28,11 @@ function Todo(props) {
     return (
         <>
             <div className="d-flex mt-4 mx-4">
-                <h4 className="">Todo List</h4>
+                <h4 className="align-self-center">Todo List</h4>
                 <div className="ml-auto">
+                    <p className="my-0 text-muted">Sort By Title</p>
                     <select
-                        className="align-self-center form-control"
+                        className="form-control"
                         disabled={sortBy.date ? true: false}
                         name="title"
                         placeholder="Sort by title"
@@ -48,8 +49,9 @@ function Todo(props) {
                     </select>
                 </div>
                 <div className="ml-2">
+                    <p className="my-0 text-muted">Sort By Date</p>
                     <select
-                        className="align-self-center form-control"
+                        className="form-control"
                         name="date"
                         disabled={sortBy.title ? true: false}
                         placeholder="Sort by date"
@@ -65,18 +67,25 @@ function Todo(props) {
                         <option value="2">Descending</option>
                     </select>
                 </div>
-                {(sortBy.title || sortBy.date) && <button
-                    className="align-self-center btn ml-2 btn-danger"
-                    onClick={() => setShortBy(prevData => ({
-                        ...prevData,
-                        title: '',
-                        date: ''
-                    }))}
-                >Reset</button>}
-                <button
-                    className="align-self-center btn ml-2 btn-success"
-                    onClick={() => props.setToggleTodoAdd(true)}
-                >+ Add Todo</button>
+
+                {(sortBy.title || sortBy.date) && <div className="ml-2">
+                    <p className="my-0">&nbsp;</p>
+                    <button
+                        className="btn btn-danger"
+                        onClick={() => setShortBy(prevData => ({
+                            ...prevData,
+                            title: '',
+                            date: ''
+                        }))}
+                    >Reset</button>
+                </div>}
+                <div className="ml-2">
+                    <p className="my-0">&nbsp;</p>
+                    <button
+                        className="btn btn-success"
+                        onClick={() => props.setToggleTodoAdd(true)}
+                    >+ Add Todo</button>
+                </div>
             </div>
             <div class="table-responsive p-4 todo-table">
                 <table className="table border rounded">
