@@ -48,6 +48,11 @@ function TodoContainer() {
         setTodoList(prevData => [...prevData.filter(item => (item.title != todo.title))]);
     }
 
+    function goBack() {
+        setSelectedTodo(null);
+        setToggleTodoAdd(false);
+    }
+
     return (
         <>
             {!toggleTodoAdd ? <Todo 
@@ -58,7 +63,7 @@ function TodoContainer() {
             />: <TodoForm 
                 handleSubmit={handleAddORUpdate}
                 data={selectedTodo}
-                setToggleTodoAdd={setToggleTodoAdd}
+                goBack={goBack}
             />}
         </>
     );

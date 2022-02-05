@@ -108,7 +108,7 @@ function TodoForm(props) {
                 </div>
                 <div className="col-12 text-right my-3">
                     <button
-                        onClick={() => props.setToggleTodoAdd(false)}
+                        onClick={() => props.goBack()}
                         className="btn btn-outline-secondary"
                     >Back</button>
                     <button
